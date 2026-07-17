@@ -1,0 +1,15 @@
+{
+  "name": "auto-alianca-lordelo",
+  "version": "1.0.0",
+  "description": "Landing page da Auto Aliança Lordelo — oficina automóvel em Lordelo, Guimarães.",
+  "private": true,
+  "author": "Auto Aliança Lordelo",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "live-server --port=5500 --open=/index.html",
+    "start": "live-server --port=5500 --open=/index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

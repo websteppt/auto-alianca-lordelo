@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Ficheiros de sistema
+.DS_Store
+Thumbs.db
+
+# Ficheiros de ambiente
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
