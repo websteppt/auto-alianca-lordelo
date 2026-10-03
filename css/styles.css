@@ -68,7 +68,7 @@ button{ font-family: inherit; }
 .wrap{
   max-width: var(--largura-max);
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: clamp(18px, 4vw, 24px);
 }
 .wrap--narrow{ max-width: var(--largura-max-estreita); }
 
@@ -156,7 +156,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .header__wrap{
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(10px, 2.5vw, 24px);
   height: var(--header-h);
 }
 .brand{
@@ -166,7 +166,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin-right: auto;
 }
 .brand__logo{
-  height: 70px;
+  height: clamp(46px, 9vw, 70px);
   width: auto;
   display: block;
 }
@@ -187,7 +187,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .nav{
   display: flex;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: clamp(12px, 2vw, 28px);
 }
 .nav a{
   color: rgba(255,255,255,.82);
@@ -284,7 +285,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: radial-gradient(circle at 82% 12%, #1a1712 0%, var(--grafite) 55%);
   color: #fff;
   overflow: hidden;
-  padding-top: 88px;
+  padding-top: clamp(56px, 10vw, 88px);
   padding-bottom: 0;
 }
 .hero__bg{
@@ -298,11 +299,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .hero__wrap{
   position: relative;
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 6vw, 56px);
   align-items: center;
-  padding-bottom: 80px;
+  padding-bottom: clamp(40px, 8vw, 80px);
+}
+.hero__content{
+  flex: 1 1 380px;
 }
 .hero__title{
   font-size: clamp(2.2rem, 1.4rem + 3.6vw, 3.6rem);
@@ -321,6 +325,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   gap: 14px;
   margin-bottom: 36px;
 }
+.hero__cta .btn{ flex: 1 1 220px; }
 .hero__badges{
   display: flex;
   flex-wrap: wrap;
@@ -352,10 +357,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* Ticket — elemento assinatura */
-.hero__visual{ display: flex; justify-content: center; }
+.hero__visual{ display: flex; justify-content: center; flex: 1 1 260px; }
 .ticket{
   width: 100%;
-  max-width: 320px;
+  max-width: min(320px, 82vw);
   background: var(--branco-oficina);
   color: var(--texto-escuro);
   border-radius: var(--radius-md);
@@ -456,10 +461,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    BENEFÍCIOS
    ========================================================= */
-.beneficios{ padding-block: 100px; }
+.beneficios{ padding-block: clamp(56px, 10vw, 100px); }
 .beneficios__grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 22px;
 }
 .beneficio-card{
@@ -486,11 +491,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    ========================================================= */
 .servicos{
   background: var(--grafite);
-  padding-block: 100px;
+  padding-block: clamp(56px, 10vw, 100px);
 }
 .servicos__grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 .servico-card{
@@ -514,7 +519,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    PROCESSO
    ========================================================= */
-.processo{ padding-block: 100px; background: var(--branco-puro); }
+.processo{ padding-block: clamp(56px, 10vw, 100px); background: var(--branco-puro); }
 .processo__lista{
   display: flex;
   flex-direction: column;
@@ -522,6 +527,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .processo__item{
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 20px;
   padding-block: 22px;
@@ -550,7 +556,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    REDES SOCIAIS
    ========================================================= */
-.testemunhos{ padding-block: 100px; background: var(--branco-oficina); }
+.testemunhos{ padding-block: clamp(56px, 10vw, 100px); background: var(--branco-oficina); }
 .testemunhos__wrap{ text-align: center; }
 .testemunhos__head{ margin-inline: auto; text-align: center; }
 .testemunhos__head .eyebrow{ justify-content: center; }
@@ -565,6 +571,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .social-link{
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex: 1 1 220px;
   gap: 10px;
   background: var(--branco-puro);
   border: 1.5px solid #E7E9EC;
@@ -584,7 +592,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    FAQ
    ========================================================= */
-.faq{ padding-block: 100px; background: var(--branco-puro); }
+.faq{ padding-block: clamp(56px, 10vw, 100px); background: var(--branco-puro); }
 .faq__lista{ border-top: 1px solid #E7E9EC; }
 .faq-item{ border-bottom: 1px solid #E7E9EC; }
 .faq-item__pergunta{
@@ -636,7 +644,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cta-final{
   background: linear-gradient(120deg, var(--dourado-escuro), var(--dourado));
   color: #fff;
-  padding-block: 60px;
+  padding-block: clamp(40px, 7vw, 60px);
 }
 .cta-final__wrap{
   display: flex;
@@ -648,18 +656,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cta-final h2{ font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem); margin-bottom: 8px; }
 .cta-final p{ color: rgba(255,255,255,.85); }
 .cta-final__botoes{ display: flex; gap: 14px; flex-wrap: wrap; }
+.cta-final__botoes .btn{ flex: 1 1 180px; }
 .cta-final .btn--primary{ background: var(--grafite); }
 .cta-final .btn--primary:hover{ background: #000; }
 
 /* =========================================================
    CONTACTO
    ========================================================= */
-.contacto{ padding-block: 100px; background: var(--branco-oficina); }
+.contacto{ padding-block: clamp(56px, 10vw, 100px); background: var(--branco-oficina); }
 .contacto__grid{
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 6vw, 60px);
 }
+.contacto__info{ flex: 1 1 360px; }
+.contacto__form{ flex: 1.2 1 360px; }
 .contacto__lista{ display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
 .contacto__lista li{
   display: flex;
@@ -688,7 +699,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .form-row{ margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
 .form-row--2col{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 18px;
 }
 .form-row--2col > div{ display: flex; flex-direction: column; gap: 6px; }
@@ -732,10 +743,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    FOOTER
    ========================================================= */
-.footer{ background: var(--grafite); color: rgba(255,255,255,.7); padding-block: 56px 28px; }
+.footer{ background: var(--grafite); color: rgba(255,255,255,.7); padding-block: clamp(36px, 6vw, 56px) 28px; }
 .footer__wrap{
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
 }
 .footer__brand p{ margin-top: 12px; font-size: .88rem; max-width: 34ch; color: rgba(255,255,255,.55); }
@@ -749,13 +760,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    RESPONSIVO
    ========================================================= */
-@media (max-width: 1024px){
-  .beneficios__grid, .servicos__grid{ grid-template-columns: repeat(2, 1fr); }
-  .social-links{ flex-direction: column; align-items: stretch; }
-  .contacto__grid{ grid-template-columns: 1fr; gap: 44px; }
-  .footer__wrap{ grid-template-columns: 1fr 1fr; }
-}
-
+/*
+   Layout fluido: grids usam auto-fit/minmax e secções usam flex-wrap,
+   pelo que se reorganizam sozinhas em qualquer largura, sem depender
+   de breakpoints fixos. O único ponto de corte que resta é o menu
+   hambúrguer — um padrão de interação (não um layout), que só existe
+   em dois estados possíveis (aberto/fechado).
+*/
 @media (max-width: 880px){
   .nav, .header__actions .header__phone{ display: none; }
   .nav-toggle{ display: flex; }
@@ -773,25 +784,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     border-bottom: 1px solid rgba(255,255,255,.08);
   }
   .nav[data-open="true"] a{ padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
-
-  .hero__wrap{ grid-template-columns: 1fr; padding-bottom: 60px; }
-  .hero__visual{ order: -1; margin-bottom: 8px; }
-  .ticket{ max-width: 280px; }
-
-  .stats__grid{ grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
-  .stat:nth-child(3){ border-left: none; padding-left: 0; }
-
-  .beneficios__grid, .servicos__grid{ grid-template-columns: 1fr; }
-  .form-row--2col{ grid-template-columns: 1fr; }
-}
-
-@media (max-width: 560px){
-  .wrap{ padding-inline: 18px; }
-  .beneficios, .servicos, .processo, .testemunhos, .faq, .contacto{ padding-block: 64px; }
-  .hero{ padding-top: 78px; }
-  .hero__cta{ flex-direction: column; align-items: stretch; }
-  .hero__cta .btn{ width: 100%; }
-  .footer__wrap{ grid-template-columns: 1fr; }
-  .cta-final__wrap{ flex-direction: column; align-items: flex-start; }
-  .cta-final__botoes .btn{ width: 100%; }
 }
