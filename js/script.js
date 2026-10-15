@@ -103,6 +103,15 @@
       return valido;
     };
 
+    // Links com data-servico (ex: secção "ao domicílio") pré-selecionam o serviço
+    document.querySelectorAll('[data-servico]').forEach((link) => {
+      link.addEventListener('click', () => {
+        const select = form.querySelector('#servico');
+        select.value = link.dataset.servico;
+        validarCampo(select);
+      });
+    });
+
     form.querySelectorAll('input, select').forEach((campo) => {
       campo.addEventListener('blur', () => validarCampo(campo));
     });
@@ -159,7 +168,7 @@
 
   if (!prefereReducedMotion && 'IntersectionObserver' in window) {
     const elementosRevelar = document.querySelectorAll(
-      '.beneficio-card, .servico-card, .testemunho-card, .processo__item, .stat'
+      '.beneficio-card, .servico-card, .testemunho-card, .processo__item, .stat, .domicilio__vantagens li'
     );
 
     elementosRevelar.forEach((el) => {

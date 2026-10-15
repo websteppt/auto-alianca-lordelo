@@ -352,6 +352,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-items: center;
   gap: 9px;
 }
+.hero__badges-link{ color: #fff; text-decoration: underline; text-decoration-color: var(--dourado); text-underline-offset: 3px; }
+.hero__badges-link:hover{ color: var(--dourado-claro); }
 .hero__badges-icon{
   width: 16px; height: 16px;
   flex-shrink: 0;
@@ -528,6 +530,91 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .servico-card h3{ color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
 .servico-card p{ color: rgba(255,255,255,.62); font-size: .92rem; }
+
+/* =========================================================
+   SERVIÇO AO DOMICÍLIO
+   ========================================================= */
+.domicilio{ padding-block: clamp(56px, 10vw, 100px); background: var(--branco-oficina); }
+.domicilio__grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 5vw, 48px);
+  align-items: flex-start;
+}
+.domicilio__vantagens{ flex: 1 1 320px; display: grid; gap: 24px; }
+.domicilio__vantagens li{ display: flex; gap: 16px; align-items: flex-start; }
+.domicilio__icon{
+  width: 48px; height: 48px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #F6EDD8;
+  border-radius: 12px;
+}
+.domicilio__vantagens h3{ font-size: 1.12rem; margin-bottom: 4px; }
+.domicilio__vantagens p{ font-size: .93rem; color: var(--asfalto); }
+
+.domicilio__card{
+  flex: 1.2 1 360px;
+  background: var(--grafite);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 34px);
+  box-shadow: var(--sombra-card);
+}
+.domicilio__card h3{ font-size: 1.3rem; margin-bottom: 8px; }
+.domicilio__servicos li{
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-block: 14px;
+  border-top: 1px solid var(--aco-linha);
+}
+.domicilio__servicos li:first-child{ border-top: none; }
+.domicilio__servico-icon{
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(184,145,47,.16);
+  border-radius: 10px;
+}
+.domicilio__servicos strong{ display: block; font-weight: 600; margin-bottom: 2px; }
+.domicilio__detalhe{ display: block; font-size: .9rem; color: rgba(255,255,255,.68); }
+
+.domicilio__extras{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 36px;
+}
+.domicilio__extras li{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--branco-puro);
+  border: 1px solid #E7E9EC;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.domicilio__zona{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--branco-puro);
+  border: 1px solid #E7E9EC;
+  border-left: 4px solid var(--dourado);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+.domicilio__zona-texto{ display: flex; gap: 12px; align-items: flex-start; flex: 1 1 320px; }
+.domicilio__zona-texto svg{ flex-shrink: 0; margin-top: 2px; }
+.domicilio__cta{ display: flex; flex-wrap: wrap; gap: 12px; flex: 1 1 300px; justify-content: flex-end; }
+.domicilio__cta .btn{ flex: 1 1 180px; }
 
 /* =========================================================
    PROCESSO
@@ -814,7 +901,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    hambúrguer — um padrão de interação (não um layout), que só existe
    em dois estados possíveis (aberto/fechado).
 */
-@media (max-width: 880px){
+@media (max-width: 1100px){
   .nav, .header__actions .header__phone{ display: none; }
   .nav-toggle{ display: flex; }
   .header__actions .btn--primary{ padding: 10px 16px; font-size: .88rem; }

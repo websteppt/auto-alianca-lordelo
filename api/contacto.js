@@ -15,6 +15,7 @@ const SERVICOS = {
   travoes: 'Travões & Suspensão',
   diagnostico: 'Diagnóstico Eletrónico',
   ipo: 'Pré-Inspeção IPO',
+  domicilio: 'Serviço ao domicílio',
   outro: 'Outro / Não sei'
 };
 
@@ -49,6 +50,7 @@ module.exports = async (req, res) => {
   const telefone = limpar(corpo.telefone, 30);
   const email = limpar(corpo.email, 150);
   const servico = limpar(corpo.servico, 30);
+  const matricula = limpar(corpo.matricula, 12).toUpperCase();
   const mensagem = limpar(corpo.mensagem, 3000);
 
   if (
@@ -66,6 +68,7 @@ module.exports = async (req, res) => {
     ['Telemóvel', telefone],
     ['Email', email],
     ['Serviço', servicoNome],
+    ['Matrícula', matricula || '—'],
     ['Mensagem', mensagem || '—']
   ];
 
